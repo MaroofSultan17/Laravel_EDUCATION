@@ -10,15 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('badge', 20)->default('');
             $table->string('image', 200)->default('uploads/no image');
-            $table->string('instructor', 100)->default('null');
-            $table->string('coursedetails', 500)->default('null');
-            $table->string('courselevel', 20)->default('null');
-            $table->integer('courselectures')->default(0);
-            $table->string('coursecatageory', 20)->default('null');
+            $table->string('title', 100)->default('null');
+            $table->integer('day')->default(0);
+            $table->string('month', 20)->default('null');
+            $table->string('address', 500)->default('null');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('events');
     }
 };

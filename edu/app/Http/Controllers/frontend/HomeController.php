@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\frontend\CoursesModel;
+use App\Models\frontend\EventModel;
 use App\Models\frontend\HomeModel;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $courses = CoursesModel::all();
-        $data = compact('courses');
+        $events = EventModel::all();
+        $data = compact('courses', 'events');
         return view('frontend.index')->with($data);
     }
 
