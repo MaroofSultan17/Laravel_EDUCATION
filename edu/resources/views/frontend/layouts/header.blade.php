@@ -3,10 +3,10 @@
     <html lang="en">
 
     <head>
+        <title>@yield('title') | EDUCATION</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@yield('title') | EDUCATION</title>
         <link rel="shortcut icon" href="{{ url('frontend/images/logo/favourite_icon.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/fontawesome.css') }}">

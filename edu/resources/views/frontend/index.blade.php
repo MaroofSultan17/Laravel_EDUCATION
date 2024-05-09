@@ -168,7 +168,6 @@
                             @endforeach
                         </div>
                     </div>
-
                     <div class="tab-pane fade" id="tab_python" role="tabpanel">
                         <div class="row">
                             <div class="row">
@@ -209,7 +208,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="tab-pane fade" id="tab_web_development" role="tabpanel">
                         <div class="row">
                             <div class="row">
@@ -250,7 +248,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="tab-pane fade" id="tab_business" role="tabpanel">
                         <div class="row">
                             <div class="row">
@@ -388,7 +385,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -402,7 +398,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -416,7 +411,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -430,7 +424,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -444,7 +437,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -458,7 +450,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -472,7 +463,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col col-lg-3">
                         <div class="category_item_2">
                             <a href='course_details.html'>
@@ -487,7 +477,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="btn_wrap text-center">
                     <a class='btn_unfill' href='category.html'>
                         Explore All Courses
