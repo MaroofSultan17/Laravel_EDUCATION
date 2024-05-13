@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CoursesModel extends Model
 {
     protected $table = 'courses';
-    protected $primarykey = 'id';
+    protected $primarykey = 'course_id';
     use HasFactory;
 }

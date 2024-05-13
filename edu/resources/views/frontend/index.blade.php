@@ -132,6 +132,7 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab_javascript" role="tabpanel">
                         <div class="row">
+                            {{-- Yaha Course Catageory table sy remove kr dia tha change krna hai --}}
                             @foreach ($courses as $coursedata)
                                 @if ($coursedata->coursecatageory == 'javascript')
                                     <div class="col col-lg-3 col-md-6 col-sm-6">
