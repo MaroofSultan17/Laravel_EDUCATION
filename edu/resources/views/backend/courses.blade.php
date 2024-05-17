@@ -26,7 +26,7 @@
                     <tbody>
                         @foreach ($courses as $courses)
                             <tr>
-                                <th scope="row">{{ $courses->id }}</th>
+                                <th scope="row">{{ $courses->course_id }}</th>
                                 <td>{{ $courses->instructor }}</td>
                                 <td>{{ $courses->coursedetails }}</td>
                                 <td>{{ $courses->courselevel }}</td>
