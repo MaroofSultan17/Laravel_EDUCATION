@@ -1,4 +1,4 @@
-@if (url()->current() == url('/'))
+@if (request()->routeIs('home.show'))
     <!doctype html>
     <html lang="en">
 
@@ -50,11 +50,45 @@
                                 <div class="main_menu_inner collapse navbar-collapse justify-content-center"
                                     id="main_menu_dropdown">
                                     <ul class="main_menu_list unordered_list_center">
-                                        <li class="{{ url()->current() == url('/') ? 'active' : '' }}">
-                                            <a class="nav-link" href="{{ url('/') }}" id="home_submenu"
-                                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+                                        <li class="{{ request()->routeIs('home.show') ? 'active' : '' }}">
+                                            <a class='nav-link' href="{{ route('home.show') }}">Home</a>
                                         </li>
                                         <li class="dropdown">
+                                            <a class="nav-link" href="#" id="courses_submenu" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                Courses
+                                            </a>
+                                            <ul class="dropdown-menu {{ request()->routeIs('course_catageory.show') ? 'active' : '' }}"
+                                                aria-labelledby="courses_submenu">
+                                                <li
+                                                    class="{{ request()->routeIs('course_catageory.show') ? 'active' : '' }}">
+                                                    <a href='{{ route('course_catageory.show') }}'>Course
+                                                        Categories</a>
+                                                </li>
+                                                <li class="{{ request()->routeIs('courses.show') ? 'active' : '' }}">
+                                                    <a href='{{ route('courses.show') }}'>Our Courses</a>
+                                                </li>
+                                                <li
+                                                    class="{{ request()->routeIs('course_details.show') ? 'active' : '' }}">
+                                                    <a href='{{ route('course_details.show') }}'>Course Details</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown {{ request()->routeIs('blogs.show') ? 'active' : '' }}">
+                                            <a class="nav-link" href="#" id="blog_submenu" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                Blog
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="blog_submenu">
+                                                <li class="{{ request()->routeIs('blogs.show') ? 'active' : '' }}"><a
+                                                        href='{{ route('blogs.show') }}'>Our Blogs</a></li>
+                                                <li
+                                                    class="{{ request()->routeIs('blog_details.show') ? 'active' : '' }}">
+                                                    <a href='{{ route('course_details.show') }}'>Blog Details</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        {{-- <li class="dropdown">
                                             <a class="nav-link" href="#" id="pages_submenu" role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 Pages
@@ -63,7 +97,8 @@
                                                 <li><a href='about.html'>About Us</a></li>
                                                 <li class="dropdown">
                                                     <a class="nav-link" href="#" id="register_submenu"
-                                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        role="button" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
                                                         My Account
                                                     </a>
                                                     <ul class="dropdown-menu" aria-labelledby="register_submenu">
@@ -75,29 +110,10 @@
                                                 <li><a href='membership.html'>Membership</a></li>
                                                 <li><a href='event_details.html'>Event Details</a></li>
                                             </ul>
+                                        </li> --}}
+                                        <li class="{{ request()->routeIs('contact.show') ? 'active' : '' }}">
+                                            <a class='nav-link' href="{{ route('contact.show') }}">Contact</a>
                                         </li>
-                                        <li class="dropdown">
-                                            <a class="nav-link" href="#" id="courses_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Courses
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="courses_submenu">
-                                                <li><a href='category.html'>Course Categories</a></li>
-                                                <li><a href='course.html'>Our Courses</a></li>
-                                                <li><a href='course_details.html'>Course Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a class="nav-link" href="#" id="blog_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Blog
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="blog_submenu">
-                                                <li><a href='blog.html'>Our Blogs</a></li>
-                                                <li><a href='blog_details.html'>Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a class='nav-link' href="{{ url('/contact') }}">Contact</a></li>
                                     </ul>
                                 </div>
                                 <ul class="header_btns_group unordered_list_end">
@@ -186,25 +202,67 @@
                                             <div class="main_menu_inner collapse navbar-collapse justify-content-center"
                                                 id="main_menu_dropdown">
                                                 <ul class="main_menu_list unordered_list_center">
-                                                    <li class="{{ url()->current() == url('/') ? 'active' : '' }}">
-                                                        <a class='nav-link' href="{{ url('/') }}">Home</a>
+                                                    <li class="{{ request()->routeIs('home.show') ? 'active' : '' }}">
+                                                        <a class='nav-link' href="{{ route('home.show') }}">Home</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="nav-link" href="#" id="pages_submenu"
+                                                        <a class="nav-link" href="#" id="courses_submenu"
                                                             role="button" data-bs-toggle="dropdown"
                                                             aria-expanded="false">
+                                                            Courses
+                                                        </a>
+                                                        <ul class="dropdown-menu {{ request()->routeIs('course_catageory.show') ? 'active' : '' }}"
+                                                            aria-labelledby="courses_submenu">
+                                                            <li
+                                                                class="{{ request()->routeIs('course_catageory.show') ? 'active' : '' }}">
+                                                                <a href='{{ route('course_catageory.show') }}'>Course
+                                                                    Categories</a>
+                                                            </li>
+                                                            <li
+                                                                class="{{ request()->routeIs('courses.show') ? 'active' : '' }}">
+                                                                <a href='{{ route('courses.show') }}'>Our Courses</a>
+                                                            </li>
+                                                            <li
+                                                                class="{{ request()->routeIs('course_details.show') ? 'active' : '' }}">
+                                                                <a href='{{ route('course_details.show') }}'>Course
+                                                                    Details</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li
+                                                        class="dropdown {{ request()->routeIs('blogs.show') ? 'active' : '' }}">
+                                                        <a class="nav-link" href="#" id="blog_submenu"
+                                                            role="button" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            Blog
+                                                        </a>
+                                                        <ul class="dropdown-menu {{ request()->routeIs('blogs.show') ? 'active' : '' }}"
+                                                            aria-labelledby="blog_submenu">
+                                                            <li
+                                                                class="{{ request()->routeIs('blogs.show') ? 'active' : '' }}">
+                                                                <a href='{{ route('blogs.show') }}'>Our Blogs</a>
+                                                            </li>
+                                                            <li
+                                                                class="{{ request()->routeIs('blog_details.show') ? 'active' : '' }}">
+                                                                <a href='{{ route('course_details.show') }}'>Blog
+                                                                    Details</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    {{-- <li class="dropdown">
+                                                        <a class="nav-link" href="#" id="pages_submenu" role="button"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
                                                             Pages
                                                         </a>
                                                         <ul class="dropdown-menu" aria-labelledby="pages_submenu">
                                                             <li><a href='about.html'>About Us</a></li>
                                                             <li class="dropdown">
-                                                                <a class="nav-link" href="#"
-                                                                    id="register_submenu" role="button"
-                                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <a class="nav-link" href="#" id="register_submenu"
+                                                                    role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false">
                                                                     My Account
                                                                 </a>
-                                                                <ul class="dropdown-menu"
-                                                                    aria-labelledby="register_submenu">
+                                                                <ul class="dropdown-menu" aria-labelledby="register_submenu">
                                                                     <li><a href='login.html'>Login Form</a></li>
                                                                     <li><a href='signup.html'>Sign Up Form</a></li>
                                                                 </ul>
@@ -213,36 +271,44 @@
                                                             <li><a href='membership.html'>Membership</a></li>
                                                             <li><a href='event_details.html'>Event Details</a></li>
                                                         </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="nav-link" href="#" id="courses_submenu"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            Courses
-                                                        </a>
-                                                        <ul class="dropdown-menu" aria-labelledby="courses_submenu">
-                                                            <li><a href='category.html'>Course Categories</a></li>
-                                                            <li><a href='course.html'>Our Courses</a></li>
-                                                            <li><a href='course_details.html'>Course Details</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="nav-link" href="#" id="blog_submenu"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            Blog
-                                                        </a>
-                                                        <ul class="dropdown-menu" aria-labelledby="blog_submenu">
-                                                            <li><a href='blog.html'>Our Blogs</a></li>
-                                                            <li><a href='blog_details.html'>Blog Details</a></li>
-                                                        </ul>
-                                                    </li>
+                                                    </li> --}}
                                                     <li
-                                                        class="{{ url()->current() == url('/contact') ? 'active' : '' }}">
-                                                        <a class='nav-link' href="{{ url('/contact') }}">Contact</a>
+                                                        class="{{ request()->routeIs('contact.show') ? 'active' : '' }}">
+                                                        <a class='nav-link'
+                                                            href="{{ route('contact.show') }}">Contact</a>
                                                     </li>
                                                 </ul>
                                             </div>
+                                            <ul class="header_btns_group unordered_list_end">
+                                                <li>
+                                                    <button data-magnetic data-cursor="-opaque"
+                                                        class="mobile_menu_btn" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown"
+                                                        aria-controls="main_menu_dropdown" aria-expanded="false"
+                                                        aria-label="Toggle navigation">
+                                                        <i class="far fa-bars"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <a class='login_btn' data-cursor='-opaque' data-magnetic
+                                                        href='login.html'>
+                                                        <i class="far fa-user"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <button data-magnetic data-cursor="-opaque" type="button"
+                                                        class="cart_btn" id="cart_dropdown" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <i class="far fa-shopping-cart"></i>
+                                                        <span class="cart_counter">0</span>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="cart_dropdown">
+                                                        <h3 class="cart_empty_text text-center mb-0"><span
+                                                                class="d-block">No
+                                                                products</span> in the cart.</h3>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </nav>
                                     </div>
                                     <div class="col col-lg-3 col-5">

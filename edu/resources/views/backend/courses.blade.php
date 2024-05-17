@@ -3,10 +3,13 @@
 @section('main-container')
     <div class="main-panel">
         <div class="content-wrapper">
-            <a href="{{ url('/admin/courses/add') }}">
-                <button class="btn btn-outline-primary w-100 rounded" style="height: 50px; font-size: 20px;">Add
-                    Courses</button>
-            </a>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ url('/admin/courses/add') }}">
+                    <button class="btn me-md-2 w-20 h-100 rounded" style="background: #1c45ef; color: white;"
+                        type="button">Add
+                        Courses</button>
+                </a>
+            </div>
             <div class="container-fluid mt-4 mb-3">
                 <table class="table table-hover">
                     <thead>
@@ -30,8 +33,9 @@
                                 <td>{{ $courses->courselectures }}</td>
                                 <td>{{ $courses->coursecatageory }}</td>
                                 <td>
-                                    <a href="#"><button class="btn btn-danger">Delete</button></a>
-                                    <button class="btn btn-primary">Edit</button>
+                                    <a href="#"><button class="btn"
+                                            style="background: #dc2e3f; color: white;">Delete</button></a>
+                                    <button class="btn" style="background: #1c45ef; color: white;">Edit</button>
                                 </td>
                             </tr>
                         @endforeach

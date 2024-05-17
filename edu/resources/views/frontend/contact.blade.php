@@ -87,13 +87,13 @@
                             <h2 class="contact_title text-center">Have a quetions?</h2>
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-block p-4 border-left-warning"
-                                    style="background-color:#EC8E22; opacity:1">
+                                    style="background-color:#3a10e5; opacity:1">
                                     <strong>
                                         <h1 style="color:#ffffff">{{ $message }}</h1>
                                     </strong>
                                 </div>
                             @endif
-                            <form action="{{ url('/contact') }}" method="POST">
+                            <form action="{{ route('contact.add') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col col-md-6">
