@@ -10,7 +10,8 @@
                 </a>
             </div>
             @if ($message = Session::get('success'))
-                <div class="alert alert-block p-4 border-left-warning" style="background-color:#3a10e5; opacity:1">
+                <div class="alert alert-block p-4 border-left-warning text-center"
+                    style="background-color:#3a10e5; opacity:1">
                     <strong>
                         <h1 style="color:#ffffff">{{ $message }}</h1>
                     </strong>
@@ -89,6 +90,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button type="submit" class="btn btn-success w-20 mb-3 form-control-lg rounded"
                         style="font-size: 18px;" name="submit">Submit</button>
+                </div>
             </form>
         </div>
     @endsection

@@ -1208,10 +1208,10 @@
             </div>
         </section>
         <!-- Course Section - End
-                                    ================================================== -->
+                                        ================================================== -->
 
         <!-- Get Start Section - Start
-                                    ================================================== -->
+                                        ================================================== -->
         <section class="getstart_section decoration_wrap text-center">
             <div class="container">
                 <h2 class="title_text">Ready to kick-start your career?</h2>
@@ -1231,7 +1231,7 @@
             </div>
         </section>
         <!-- Get Start Section - End
-                                    ================================================== -->
+                                        ================================================== -->
 
     </main>
 @endsection
