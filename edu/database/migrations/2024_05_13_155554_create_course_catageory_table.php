@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('course_catageory', function (Blueprint $table) {
             $table->id('catageory_id');
-            $table->string('catageory_name')->default('null');
+            $table->string('catageory_name')->unique();
             $table->text('catageory_details')->nullable();
             $table->timestamps();
         });

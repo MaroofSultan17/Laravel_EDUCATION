@@ -95,85 +95,26 @@
                         </div>
                         <div class="col col-lg-6">
                             <ul class="tabs_nav nav unordered_list_end" role="tablist">
-                                <li role="presentation">
-                                    <button class="active" data-bs-toggle="tab" data-bs-target="#tab_javascript"
-                                        type="button" role="tab" aria-selected="true" data-magnetic>
-                                        Javascript
-                                    </button>
-                                </li>
-                                <li role="presentation">
-                                    <button data-bs-toggle="tab" data-bs-target="#tab_python" type="button" role="tab"
-                                        aria-selected="false" data-magnetic>
-                                        Python
-                                    </button>
-                                </li>
-                                <li role="presentation">
-                                    <button data-bs-toggle="tab" data-bs-target="#tab_web_development" type="button"
-                                        role="tab" aria-selected="false" data-magnetic>
-                                        Web Development
-                                    </button>
-                                </li>
-                                <li role="presentation">
-                                    <button data-bs-toggle="tab" data-bs-target="#tab_art_design" type="button"
-                                        role="tab" aria-selected="false" data-magnetic>
-                                        Art & Design
-                                    </button>
-                                </li>
-                                <li role="presentation">
-                                    <button data-bs-toggle="tab" data-bs-target="#tab_business" type="button"
-                                        role="tab" aria-selected="false" data-magnetic>
-                                        Business
-                                    </button>
-                                </li>
+                                @foreach ($catageory as $category)
+                                    <li role="presentation">
+                                        <button class="{{ $loop->first ? 'active' : '' }}" data-bs-toggle="tab"
+                                            data-bs-target="#{{ $category->catageory_name }}" type="button" role="tab"
+                                            aria-selected="{{ $loop->first ? 'true' : 'false' }}" data-magnetic>
+                                            {{ strtoupper($category->catageory_name) }}
+                                        </button>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="tab_javascript" role="tabpanel">
-                        <div class="row">
-                            {{-- Yaha Course Catageory table sy remove kr dia tha change krna hai --}}
-                            @foreach ($courses as $coursedata)
-                                @if ($coursedata->coursecatageory == 'javascript')
-                                    <div class="col col-lg-3 col-md-6 col-sm-6">
-                                        <div class="course_item">
-                                            <div class="item_image">
-                                                <ul class="badge_group unordered_list">
-                                                    <li><a class="badge bg-danger"
-                                                            href="#!">{{ $coursedata->badge }}</a>
-                                                    </li>
-                                                </ul>
-                                                <a class='image_wrap' href='course_details.html'>
-                                                    <img src="{{ url($coursedata->image) }}"
-                                                        alt="Education, Online Course, LMS Creative Site Template">
-                                                </a>
-                                            </div>
-                                            <div class="item_content">
-                                                <a class="course_instructor btn_unfill"
-                                                    href="#!">{{ $coursedata->instructor }}</a>
-                                                <h3 class="item_title">
-                                                    <a href='course_details.html'>
-                                                        {{ $coursedata->coursedetails }}
-                                                    </a>
-                                                </h3>
-                                                <ul class="course_meta unordered_list">
-                                                    <li><a href="#!"><i class="far fa-bars me-1"></i>
-                                                            {{ $coursedata->courselevel }}</a></li>
-                                                    <li><a href="#!"><i class="fal fa-clone me-1"></i>
-                                                            {{ $coursedata->courselectures }} Lessons</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab_python" role="tabpanel">
-                        <div class="row">
+                    @foreach ($catageory as $category)
+                        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                            id="{{ $category->catageory_name }}" role="tabpanel">
                             <div class="row">
                                 @foreach ($courses as $coursedata)
-                                    @if ($coursedata->coursecatageory == 'python')
+                                    @if ($coursedata->catageory_name == $category->catageory_name)
                                         <div class="col col-lg-3 col-md-6 col-sm-6">
                                             <div class="course_item">
                                                 <div class="item_image">
@@ -189,7 +130,7 @@
                                                 </div>
                                                 <div class="item_content">
                                                     <a class="course_instructor btn_unfill"
-                                                        href="#!">{{ $coursedata->instructor }}</a>
+                                                        href="#!">{{ strtoupper($coursedata->instructor_name) }}</a>
                                                     <h3 class="item_title">
                                                         <a href='course_details.html'>
                                                             {{ $coursedata->coursedetails }}
@@ -208,127 +149,9 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab_web_development" role="tabpanel">
-                        <div class="row">
-                            <div class="row">
-                                @foreach ($courses as $coursedata)
-                                    @if ($coursedata->coursecatageory == 'webdevelopment')
-                                        <div class="col col-lg-3 col-md-6 col-sm-6">
-                                            <div class="course_item">
-                                                <div class="item_image">
-                                                    <ul class="badge_group unordered_list">
-                                                        <li><a class="badge bg-danger"
-                                                                href="#!">{{ $coursedata->badge }}</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a class='image_wrap' href='course_details.html'>
-                                                        <img src="{{ url($coursedata->image) }}"
-                                                            alt="Education, Online Course, LMS Creative Site Template">
-                                                    </a>
-                                                </div>
-                                                <div class="item_content">
-                                                    <a class="course_instructor btn_unfill"
-                                                        href="#!">{{ $coursedata->instructor }}</a>
-                                                    <h3 class="item_title">
-                                                        <a href='course_details.html'>
-                                                            {{ $coursedata->coursedetails }}
-                                                        </a>
-                                                    </h3>
-                                                    <ul class="course_meta unordered_list">
-                                                        <li><a href="#!"><i class="far fa-bars me-1"></i>
-                                                                {{ $coursedata->courselevel }}</a></li>
-                                                        <li><a href="#!"><i class="fal fa-clone me-1"></i>
-                                                                {{ $coursedata->courselectures }} Lessons</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab_business" role="tabpanel">
-                        <div class="row">
-                            <div class="row">
-                                @foreach ($courses as $coursedata)
-                                    @if ($coursedata->coursecatageory == 'business')
-                                        <div class="col col-lg-3 col-md-6 col-sm-6">
-                                            <div class="course_item">
-                                                <div class="item_image">
-                                                    <ul class="badge_group unordered_list">
-                                                        <li><a class="badge bg-danger"
-                                                                href="#!">{{ $coursedata->badge }}</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a class='image_wrap' href='course_details.html'>
-                                                        <img src="{{ url($coursedata->image) }}"
-                                                            alt="Education, Online Course, LMS Creative Site Template">
-                                                    </a>
-                                                </div>
-                                                <div class="item_content">
-                                                    <a class="course_instructor btn_unfill"
-                                                        href="#!">{{ $coursedata->instructor }}</a>
-                                                    <h3 class="item_title">
-                                                        <a href='course_details.html'>
-                                                            {{ $coursedata->coursedetails }}
-                                                        </a>
-                                                    </h3>
-                                                    <ul class="course_meta unordered_list">
-                                                        <li><a href="#!"><i class="far fa-bars me-1"></i>
-                                                                {{ $coursedata->courselevel }}</a></li>
-                                                        <li><a href="#!"><i class="fal fa-clone me-1"></i>
-                                                                {{ $coursedata->courselectures }} Lessons</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab_art_design" role="tabpanel">
-                        <div class="row">
-                            <div class="row">
-                                @foreach ($courses as $coursedata)
-                                    @if ($coursedata->coursecatageory == 'art')
-                                        <div class="col col-lg-3 col-md-6 col-sm-6">
-                                            <div class="course_item">
-                                                <div class="item_image">
-                                                    <ul class="badge_group unordered_list">
-                                                        <li><a class="badge bg-danger"
-                                                                href="#!">{{ $coursedata->badge }}</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a class='image_wrap' href='course_details.html'>
-                                                        <img src="{{ url($coursedata->image) }}"
-                                                            alt="Education, Online Course, LMS Creative Site Template">
-                                                    </a>
-                                                </div>
-                                                <div class="item_content">
-                                                    <a class="course_instructor btn_unfill"
-                                                        href="#!">{{ $coursedata->instructor }}</a>
-                                                    <h3 class="item_title">
-                                                        <a href='course_details.html'>
-                                                            {{ $coursedata->coursedetails }}
-                                                        </a>
-                                                    </h3>
-                                                    <ul class="course_meta unordered_list">
-                                                        <li><a href="#!"><i class="far fa-bars me-1"></i>
-                                                                {{ $coursedata->courselevel }}</a></li>
-                                                        <li><a href="#!"><i class="fal fa-clone me-1"></i>
-                                                                {{ $coursedata->courselectures }} Lessons</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
+            </div>
         </section>
         <section class="promembership_section decoration_wrap">
             <div class="container">

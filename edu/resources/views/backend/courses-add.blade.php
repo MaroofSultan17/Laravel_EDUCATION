@@ -29,68 +29,69 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="instructor">Instructor Name</label>
-                    <input type="text" class="form-control form-control-lg" id="instructor" name="instructor"
-                        placeholder="Instructor Name" value="{{ old('instructor') }}">
-                    @if ($errors->has('instructor'))
-                        <span class="text-danger">
-                            {{ $errors->first('instructor') }}
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <label for="courselevel">Course Level</label>
-                    <select class="form-control form-control-lg" id="courselevel" name="courselevel" required>
-                        <option value="" disabled selected>-- Course Level --</option>
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="advanced">Advanced</option>
+                    <label for="instructor">Select Instructor</label>
+                    <select class="form-control form-control-lg" id="instructor" name="instructor" required>
+                        <option value="" disabled selected>-- Select Instructor --</option>
+                        @foreach ($instructor as $instructordata)
+                            <option value="{{ $instructordata->instructor_id }}">{{ $instructordata->instructor_name }}
+                            </option>
+                        @endforeach
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="courselectures">Total Lectures</label>
-                    <input type="number" class="form-control form-control-lg" id="courselectures"
-                        placeholder="Total Lectures eg: 10, 20" name="courselectures" value="{{ old('courselectures') }}">
-                    @if ($errors->has('courselectures'))
-                        <span class="text-danger">
-                            {{ $errors->first('courselectures') }}
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <label for="coursecatageory">Course Catageory</label>
-                    <select class="form-control form-control-lg" id="coursecatageory" name="coursecatageory" required>
-                        <option value="" disabled selected>-- Course Catageory --</option>
-                        <option value="python">Python</option>
-                        <option value="javascript">Javascript</option>
-                        <option value="webdevelopment">Web Development</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Upload Image</label>
-                    <div class="input-group ">
-                        <input type="file" class="form-control form-control-lg file-upload-browse" id="image"
-                            name="image" value="{{ old('image') }}" accept=".png,.jpeg,.jpg">
-                        @if ($errors->has('image'))
+                    <div class="form-group mt-2">
+                        <label for="courselevel">Course Level</label>
+                        <select class="form-control form-control-lg" id="courselevel" name="courselevel" required>
+                            <option value="" disabled selected>-- Course Level --</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="courselectures">Total Lectures</label>
+                        <input type="number" class="form-control form-control-lg" id="courselectures"
+                            placeholder="Total Lectures eg: 10, 20" name="courselectures"
+                            value="{{ old('courselectures') }}">
+                        @if ($errors->has('courselectures'))
                             <span class="text-danger">
-                                {{ $errors->first('image') }}
+                                {{ $errors->first('courselectures') }}
                             </span>
                         @endif
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="coursedetails">Course Details</label>
-                    <textarea class="form-control" id="coursedetails" rows="2" name="coursedetails"></textarea>
-                    @if ($errors->has('coursedetails'))
-                        <span class="text-danger">
-                            {{ $errors->first('coursedetails') }}
-                        </span>
-                    @endif
-                </div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-success w-20 mb-3 form-control-lg rounded"
-                        style="font-size: 18px;" name="submit">Submit</button>
-                </div>
+                    <div class="form-group">
+                        <label for="coursecatageory">Course Catageory</label>
+                        <select class="form-control form-control-lg" id="coursecatageory" name="coursecatageory" required>
+                            <option value="" disabled selected>-- Course Catageory --</option>
+                            @foreach ($catageory as $catageorydata)
+                                <option value="{{ $catageorydata->catageory_id }}">{{ $catageorydata->catageory_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <div class="input-group ">
+                            <input type="file" class="form-control form-control-lg file-upload-browse" id="image"
+                                name="image" value="{{ old('image') }}" accept=".png,.jpeg,.jpg">
+                            @if ($errors->has('image'))
+                                <span class="text-danger">
+                                    {{ $errors->first('image') }}
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="coursedetails">Course Details</label>
+                        <textarea class="form-control" id="coursedetails" rows="2" name="coursedetails"></textarea>
+                        @if ($errors->has('coursedetails'))
+                            <span class="text-danger">
+                                {{ $errors->first('coursedetails') }}
+                            </span>
+                        @endif
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-success w-20 mb-3 form-control-lg rounded"
+                            style="font-size: 18px;" name="submit">Submit</button>
+                    </div>
             </form>
         </div>
     @endsection

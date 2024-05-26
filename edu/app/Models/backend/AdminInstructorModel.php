@@ -5,7 +5,7 @@ namespace App\Models\backend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InstructorModel extends Model
+class AdminInstructorModel extends Model
 {
     use HasFactory;
     protected $table = 'instructor';

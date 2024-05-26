@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3300
--- Generation Time: May 08, 2024 at 10:12 PM
+-- Generation Time: May 26, 2024 at 10:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -69,14 +69,14 @@ CREATE TABLE `contact` (
 --
 
 CREATE TABLE `courses` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` bigint(20) UNSIGNED NOT NULL,
   `badge` varchar(20) NOT NULL DEFAULT '',
   `image` varchar(200) NOT NULL DEFAULT 'uploads/no image',
-  `instructor` varchar(100) NOT NULL DEFAULT 'null',
   `coursedetails` varchar(500) NOT NULL DEFAULT 'null',
   `courselevel` varchar(20) NOT NULL DEFAULT 'null',
   `courselectures` int(11) NOT NULL DEFAULT 0,
-  `coursecatageory` varchar(20) NOT NULL DEFAULT 'null',
+  `catageory_id` bigint(20) NOT NULL,
+  `instructor_id` bigint(20) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -85,18 +85,31 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `badge`, `image`, `instructor`, `coursedetails`, `courselevel`, `courselectures`, `coursecatageory`, `created_at`, `updated_at`) VALUES
-(1, 'New', 'frontend/images/course/course_img_1.jpg', 'Alen Mask', ' Why Learn Intermediate SQL for Marketers?', 'Beginner', 5, 'javascript', NULL, NULL),
-(2, 'New', 'frontend/images/course/course_img_2.jpg', 'Maroof Sultan', 'Why Learn Intermediate SQL for Marketers?', 'Beginner', 20, 'python', NULL, NULL),
-(3, 'New', 'frontend/images/course/course_img_2.jpg', 'Maroof Sultan', 'Why Learn Intermediate SQL for Marketers?', 'Beginner', 20, 'python', NULL, NULL),
-(4, 'New', 'frontend/images/course/course_img_1.jpg', 'Alen Mask', ' Why Learn Intermediate SQL for Marketers?', 'Beginner', 5, 'javascript', NULL, NULL),
-(5, 'New', 'frontend/images/course/course_img_2.jpg', 'Maroof Sultan', 'Why Learn Intermediate SQL for Marketers?', 'Beginner', 20, 'webdevelopment', NULL, NULL),
-(6, 'New', 'frontend/images/course/course_img_1.jpg', 'Alen Mask', ' Why Learn Intermediate SQL for Marketers?', 'Beginner', 5, 'webdevelopment', NULL, NULL),
-(7, 'New', 'frontend/images/course/course_img_2.jpg', 'Maroof Sultan', 'Why Learn Intermediate SQL for Marketers?', 'Beginner', 20, 'art', NULL, NULL),
-(8, 'New', 'frontend/images/course/course_img_1.jpg', 'Alen Mask', ' Why Learn Intermediate SQL for Marketers?', 'Beginner', 5, 'art', NULL, NULL),
-(9, 'New', 'frontend/images/course/course_img_1.jpg', 'Alen Mask', ' Why Learn Intermediate SQL for Marketers?', 'Beginner', 5, 'business', NULL, NULL),
-(10, 'New', 'frontend/images/course/course_img_2.jpg', 'Maroof Sultan', 'Why Learn Intermediate SQL for Marketers?', 'Beginner', 20, 'business', NULL, NULL),
-(11, 'New', 'frontend/images/course/course_img_1.jpg', 'Alen Mask', ' Why Learn Intermediate SQL for Marketers?', 'Beginner', 5, 'business', NULL, NULL);
+INSERT INTO `courses` (`course_id`, `badge`, `image`, `coursedetails`, `courselevel`, `courselectures`, `catageory_id`, `instructor_id`, `created_at`, `updated_at`) VALUES
+(1, 'New', 'courses-images/education_upload_1716751631.png', 'poiuytrew', 'beginner', 21, 1, 1, '2024-05-26 14:27:11', '2024-05-26 14:27:11'),
+(2, 'New', 'courses-images/education_upload_1716754733.jpg', 'qwertyuio', 'beginner', 12, 2, 1, '2024-05-26 15:18:53', '2024-05-26 15:18:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_catageory`
+--
+
+CREATE TABLE `course_catageory` (
+  `catageory_id` bigint(20) UNSIGNED NOT NULL,
+  `catageory_name` varchar(255) NOT NULL,
+  `catageory_details` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `course_catageory`
+--
+
+INSERT INTO `course_catageory` (`catageory_id`, `catageory_name`, `catageory_details`, `created_at`, `updated_at`) VALUES
+(1, 'python', 'poiuytrew', '2024-05-26 14:26:49', '2024-05-26 14:26:49'),
+(2, 'javascript', 'poiuytre', '2024-05-26 15:00:47', '2024-05-26 15:00:47');
 
 -- --------------------------------------------------------
 
@@ -115,15 +128,6 @@ CREATE TABLE `events` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `events`
---
-
-INSERT INTO `events` (`id`, `image`, `title`, `day`, `month`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'frontend/images/events/event_img_1.png', 'Linear Regression in Python: Introduction to Simple Linear', 21, 'March', 'North Caroline                          United States', NULL, NULL),
-(2, 'frontend/images/events/event_img_2.png', 'Linear Regression in Python: Introduction to Simple Linear Maroof Sultan', 25, 'March', 'North Caroline                          United States', NULL, NULL),
-(3, 'frontend/images/events/event_img_3.png', 'Linear Regression in Python: Introduction to Simple Linear Maroof Sultan', 31, 'March', 'North Caroline                          United States', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -139,6 +143,29 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `instructor`
+--
+
+CREATE TABLE `instructor` (
+  `instructor_id` bigint(20) UNSIGNED NOT NULL,
+  `instructor_name` varchar(255) NOT NULL DEFAULT 'null',
+  `instructor_email` varchar(255) NOT NULL DEFAULT 'abc@gmail.com',
+  `instructor_contact` varchar(255) NOT NULL DEFAULT 'null',
+  `instructor_experties` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `instructor`
+--
+
+INSERT INTO `instructor` (`instructor_id`, `instructor_name`, `instructor_email`, `instructor_contact`, `instructor_experties`, `created_at`, `updated_at`) VALUES
+(1, 'maroof', 'maroofsultan17@gmail.com', '1234567890', 'poiuytrewq;lkjhgfdsa,mnbvcxz', '2024-05-26 14:26:35', '2024-05-26 14:26:35');
 
 -- --------------------------------------------------------
 
@@ -192,12 +219,14 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(17, '0001_01_01_000000_create_users_table', 1),
-(18, '0001_01_01_000001_create_cache_table', 1),
-(19, '0001_01_01_000002_create_jobs_table', 1),
-(20, '2024_05_07_191744_create_contact_table', 1),
-(21, '2024_05_08_135809_create-courses-table', 1),
-(22, '2024_05_08_193450_create_events_table', 1);
+(1, '0001_01_01_000000_create_users_table', 1),
+(2, '0001_01_01_000001_create_cache_table', 1),
+(3, '0001_01_01_000002_create_jobs_table', 1),
+(4, '2024_05_07_191744_create_contact_table', 1),
+(5, '2024_05_08_193450_create_events_table', 1),
+(6, '2024_05_13_155554_create_course_catageory_table', 1),
+(7, '2024_05_13_155620_create_instructor_table', 1),
+(8, '2024_05_13_192848_create_courses_table', 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +260,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2GDb99Lt3JAsh7fTVlZI3ffIHhE8ZiJECt3zKIWK', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRVBiR0d4QlJDTnp2dzhFWkpBWlNub3NPZUlDQUtHVlFvSVdsVlhSOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb250YWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1715199133);
+('XXrig1uWKWqJlbI2q9qTwSiZHVZ22VCAXvq6vHyF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZEZJeWsyQVI1dFkzSzZzTzV0MU5qVGNKcXU4VFh6WjN0ektpa2RlSyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1716754737);
 
 -- --------------------------------------------------------
 
@@ -276,7 +305,14 @@ ALTER TABLE `contact`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`course_id`);
+
+--
+-- Indexes for table `course_catageory`
+--
+ALTER TABLE `course_catageory`
+  ADD PRIMARY KEY (`catageory_id`),
+  ADD UNIQUE KEY `course_catageory_catageory_name_unique` (`catageory_name`);
 
 --
 -- Indexes for table `events`
@@ -290,6 +326,12 @@ ALTER TABLE `events`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `instructor`
+--
+ALTER TABLE `instructor`
+  ADD PRIMARY KEY (`instructor_id`);
 
 --
 -- Indexes for table `jobs`
@@ -345,19 +387,31 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `course_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `course_catageory`
+--
+ALTER TABLE `course_catageory`
+  MODIFY `catageory_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `instructor`
+--
+ALTER TABLE `instructor`
+  MODIFY `instructor_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -369,7 +423,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

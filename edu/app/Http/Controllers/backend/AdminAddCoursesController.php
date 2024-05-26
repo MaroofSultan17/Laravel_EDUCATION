@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\backend\AdminCourseCatageoryModel;
+use App\Models\backend\AdminInstructorModel;
 use App\Models\backend\InstructorModel;
 use App\Models\frontend\CoursesModel;
 use Illuminate\Http\Exceptions\PostTooLargeException;
@@ -12,7 +14,10 @@ class AdminAddCoursesController extends Controller
 {
     public function index()
     {
-        return view('backend.courses-add');
+        $catageory = AdminCourseCatageoryModel::get();
+        $instructor = AdminInstructorModel::get();
+        $data = compact('catageory', 'instructor');
+        return view('backend.courses-add')->with($data);
     }
 
     public function addcourses(Request $request)
@@ -39,53 +44,12 @@ class AdminAddCoursesController extends Controller
         $courses->course_id = $ID;
         $courses->badge = $request->badge;
         $courses->image = $imagePath;
-        $courses->instructor = $request->instructor;
+        $courses->instructor_id = $request->instructor;
         $courses->coursedetails = $request->coursedetails;
         $courses->courselevel = $request->courselevel;
         $courses->courselectures = $request->courselectures;
-        $courses->coursecatageory = $request->coursecatageory;
+        $courses->catageory_id = $request->coursecatageory;
         $courses->save();
-
         return back()->withSuccess('Course is uploaded Successfully!');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
