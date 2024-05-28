@@ -123,8 +123,9 @@
                                                                 href="#!">{{ $coursedata->badge }}</a>
                                                         </li>
                                                     </ul>
-                                                    <a class='image_wrap' href='course_details.html'>
-                                                        <img src="{{ url($coursedata->image) }}"
+                                                    <a class='image_wrap p-2' href='course_details.html'>
+                                                        <img style="object-fit: cover; width: 400px; height: 300px;"
+                                                            src="{{ url($coursedata->image) }}"
                                                             alt="Education, Online Course, LMS Creative Site Template">
                                                     </a>
                                                 </div>
@@ -172,7 +173,7 @@
                         </h2>
                     </div>
                     <div class="col col-lg-3">
-                        <a class='btn btn_primary' href='course.html'>
+                        <a class='btn btn_primary' href={{ route('courses.show') }}>
                             <span>
                                 <small>Explore All Courses</small>
                                 <small>Explore All Courses</small>
@@ -302,7 +303,7 @@
                     </div>
                 </div>
                 <div class="btn_wrap text-center">
-                    <a class='btn_unfill' href='category.html'>
+                    <a class='btn_unfill' href="{{ route('course_catageory.show') }}">
                         Explore All Courses
                         <i class="far fa-angle-double-right"></i>
                     </a>
@@ -365,26 +366,32 @@
                     </h2>
                 </div>
                 <div class="row justify-content-center">
+                    @php
+                        use Carbon\Carbon;
+                    @endphp
                     @foreach ($events as $eventdata)
-                        <div class="col col-lg-4 col-md-6 col-sm-7">
+                        <div class="col col-lg-4 col-md-6 col-sm-7 mb-4">
                             <div class="event_item">
-                                <a class='item_image' href='event_details.html'>
-                                    <img src="{{ url($eventdata->image) }}" alt="Event Image">
+                                <a class='item_image' href="{{ route('events_details') }}">
+                                    <img src="{{ url($eventdata->image) }}" alt="Event Image"
+                                        style="object-fit: cover; width: 400px; height: 300px;">
                                 </a>
                                 <div class="item_content">
                                     <ul class="post_meta post_meta unordered_list">
                                         <li class="date_text">
                                             <span class="d-block">
-                                                <strong class="d-block">{{ $eventdata->day }}</strong>
-                                                <small class="d-block">{{ $eventdata->month }}</small>
+                                                <strong
+                                                    class="d-block">{{ Carbon::parse($eventdata->date)->format('d') }}</strong>
+                                                <small
+                                                    class="d-block">{{ Carbon::parse($eventdata->date)->format('F') }}</small>
                                             </span>
                                         </li>
-                                        <li><a href="#!"><i
+                                        <li><a href="#"><i
                                                     class="fas fa-map-marker-alt me-1"></i>{{ $eventdata->address }}</a>
                                         </li>
                                     </ul>
                                     <h3 class="item_title mb-0">
-                                        <a href='event_details.html'>
+                                        <a href="{{ route('events_details') }}">
                                             {{ $eventdata->title }}
                                         </a>
                                     </h3>

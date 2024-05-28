@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\frontend\EventDetailsModel;
 use Illuminate\Http\Request;
 
-class BlogDetailsController extends Controller
+class EventDetailsController extends Controller
 {
     public function index()
     {
-        return view('frontend.blog-details');
+        return view('frontend.event-details');
     }
 }

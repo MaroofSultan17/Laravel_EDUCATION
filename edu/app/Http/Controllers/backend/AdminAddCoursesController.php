@@ -32,7 +32,7 @@ class AdminAddCoursesController extends Controller
             'coursedetails' => 'required|max:50'
         ]);
         $imagename = "education_upload_" . time() . "." . $request->image->extension();
-        $folderPath = 'courses-images';
+        $folderPath = 'uploads/courses-images';
         $imagePath = $folderPath . '/' . $imagename;
         $request->image->move(public_path($folderPath), $imagename);
         // dd($imagePath);

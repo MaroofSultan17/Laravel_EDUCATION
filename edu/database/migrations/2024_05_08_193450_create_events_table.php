@@ -14,8 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('image', 200)->default('uploads/no image');
             $table->string('title', 100)->default('null');
-            $table->integer('day')->default(0);
-            $table->string('month', 20)->default('null');
+            $table->date('date');
             $table->string('address', 500)->default('null');
             $table->timestamps();
         });

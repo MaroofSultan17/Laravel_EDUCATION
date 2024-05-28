@@ -84,7 +84,7 @@
                                                         href='{{ route('blogs.show') }}'>Our Blogs</a></li>
                                                 <li
                                                     class="{{ request()->routeIs('blog_details.show') ? 'active' : '' }}">
-                                                    <a href='{{ route('course_details.show') }}'>Blog Details</a>
+                                                    <a href='{{ route('blog_details.show') }}'>Blog Details</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -244,7 +244,7 @@
                                                             </li>
                                                             <li
                                                                 class="{{ request()->routeIs('blog_details.show') ? 'active' : '' }}">
-                                                                <a href='{{ route('course_details.show') }}'>Blog
+                                                                <a href='{{ route('blog_details.show') }}'>Blog
                                                                     Details</a>
                                                             </li>
                                                         </ul>

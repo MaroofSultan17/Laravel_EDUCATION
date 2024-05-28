@@ -138,7 +138,23 @@
                                 </li>
                             </ul>
                         </div>
-                        {{-- </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#event" aria-expanded="false"
+                            aria-controls="ui-basic">
+                            <i class="menu-icon typcn typcn-coffee"></i>
+                            <span class="menu-title">Event Management</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="event">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/admin/events') }}">Event List</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    {{-- </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/forms/basic_elements.html">
                             <i class="menu-icon typcn typcn-shopping-bag"></i>
