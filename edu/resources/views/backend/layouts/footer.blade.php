@@ -1,11 +1,13 @@
 <footer class="footer">
-    <div class="container-fluid clearfix">
-        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2020 <a
-                href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights
-            reserved.</span>
-        {{-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a
-                href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"> Free
-                Bootstrap template </a> from BootstrapDash templates</span> --}}
+    <div class="container p-4">
+        <div class="footer_bottom" style="margin-top: -30px">
+            <div class="container text-center mt-2" style="margin-bottom: -40px">
+                <p> © 2024 Developed by <a href="{{ env('GITHUB ') }}" style="color: #1c45ef;">Maroof
+                        Sultan</a> Under the Supervision of<br><a style="color: #1c45ef;" href="{{ env('GITHUB') }}">Mr.
+                        Muhammad Jamil</a>
+                </p>
+            </div>
+        </div>
     </div>
 </footer>
 </div>

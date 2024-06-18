@@ -97,8 +97,19 @@
                                         account</a>
                                 </div>
                             </form>
+                            <ul class="auth-footer">
+                                <li style="color: black">
+                                    <a href="#" style="color: black">Conditions</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color: black">Help</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color: black">Terms</a>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="auth-footer">
+                        {{-- <ul class="auth-footer">
                             <li style="color: black">
                                 <a href="#" style="color: black">Conditions</a>
                             </li>
@@ -108,9 +119,7 @@
                             <li>
                                 <a href="#" style="color: black">Terms</a>
                             </li>
-                        </ul>
-                        <p class="footer-text text-center" style="color: black">copyright © 2020 Bootstrapdash. All
-                            rights reserved.</p>
+                        </ul> --}}
                     </div>
                 </div>
             </div>
