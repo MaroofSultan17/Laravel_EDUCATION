@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <?php
+    $Admin = App\Models\backend\AdminAuthModel::first();
+    ?>
     <div class="container-scroller">
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -41,7 +44,7 @@
                     </div>
                 </form>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
                             <i class="mdi mdi-bell-outline"></i>
@@ -54,20 +57,15 @@
                             <i class="mdi mdi-email-outline"></i>
                             <span class="count bg-success">3</span>
                         </a>
-                    </li>
-                    <?php
-                    $Admin = App\Models\backend\AdminAuthModel::first();
-                    ?>
+                    </li> --}}
                     <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
-                            <img class="img-xs rounded-circle" src="{{ url('backend/images/faces/face8.jpg') }}"
-                                alt="Profile image">
+                            <img class="img-xs rounded-circle" src="{{ url($Admin->image) }}" alt="Profile image">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle" src="{{ url('backend/images/faces/face8.jpg') }}"
-                                    alt="Profile image">
+                                <img class="img-md rounded-circle" src="{{ url($Admin->image) }}" alt="Profile image">
                                 <p class="mb-1 mt-3 font-weight-semibold">{{ $Admin->name }}</p>
                                 <p class="font-weight-light text-muted mb-0">{{ $Admin->email }}</p>
                             </div>
@@ -91,7 +89,7 @@
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="profile-image">
-                                <img class="img-xs rounded-circle" src="{{ url('backend/images/faces/face8.jpg') }}"
+                                <img class="img-xs rounded-circle" src="{{ url($Admin->image) }}"
                                     alt="profile image">
                                 <div class="dot-indicator bg-success"></div>
                             </div>

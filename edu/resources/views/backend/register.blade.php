@@ -98,7 +98,6 @@
     <script src="{{ url('backend/vendors/js/vendor.bundle.addons.js') }}"></script>
     <script src="{{ url('backend/js/shared/off-canvas.js') }}"></script>
     <script src="{{ url('backend/js/shared/misc.js') }}"></script>
-    <script src="{{ url('backend/js/shared/jquery.cookie.js') }}" type="text/javascript"></script>
 </body>
 
 </html>

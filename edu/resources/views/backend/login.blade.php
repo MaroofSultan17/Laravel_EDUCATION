@@ -24,7 +24,7 @@
                             @if (session()->has('success') || session()->has('error'))
                                 @if (session()->has('success'))
                                     <div class="alert alert-block p-4 border-left-warning text-center"
-                                        style="background-color:#219; opacity:1">
+                                        style="background-color:#2196f3; opacity:1">
                                         <strong>
                                             <h5 style="color: #ffffff">{{ session('success') }}</h5>
                                         </strong>

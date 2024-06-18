@@ -1,5 +1,5 @@
 @extends('backend.layouts.main')
-@section('title', 'Profile')
+@section('title', 'Profile-Edit')
 @section('main-container')
     <div class="main-panel">
         <div class="container-fluid m-2">
@@ -9,7 +9,8 @@
                         type="button">Show Profile</button>
                 </a>
             </div>
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('profile_edit.submit', ['token' => $profiledata->token]) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-3">
                     <label for="name">Full Name</label>
@@ -17,46 +18,6 @@
                         value="{{ $profiledata->name }}">
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span>
-                    @endif
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="skill">Skill</label>
-                    <input type="text" class="form-control" id="type" name="skill" placeholder="Laravel/WEB"
-                        value="{{ $profiledata->skill }}">
-                    @if ($errors->has('skill'))
-                        <span class="text-danger">{{ $errors->first('skill') }}</span>
-                    @endif
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="facebook">Facebook Link</label>
-                    <input type="text" class="form-control" id="facebook" placeholder="facebook" name="facebook"
-                        value="{{ $profiledata->facebook }}">
-                    @if ($errors->has('facebook'))
-                        <span class="text-danger">{{ $errors->first('facebook') }}</span>
-                    @endif
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="github">Github Link</label>
-                    <input type="text" class="form-control" id="github" placeholder="github" name="github"
-                        value="{{ $profiledata->github }}">
-                    @if ($errors->has('github'))
-                        <span class="text-danger">{{ $errors->first('github') }}</span>
-                    @endif
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="instagram">Instagram Link</label>
-                    <input type="text" class="form-control" id="instagram" placeholder="instagram" name="instagram"
-                        value="{{ $profiledata->instagram }}">
-                    @if ($errors->has('instagram'))
-                        <span class="text-danger">{{ $errors->first('instagram') }}</span>
-                    @endif
-                </div>
-                <div class="form-floating mb-3">
-                    <label for="linkedin">Linkedin Link</label>
-                    <input type="text" class="form-control" id="linkedin" placeholder="linkedin" name="linkedin"
-                        value="{{ $profiledata->linkedin }}">
-                    @if ($errors->has('linkedin'))
-                        <span class="text-danger">{{ $errors->first('linkedin') }}</span>
                     @endif
                 </div>
                 <div class="form-floating mb-3">

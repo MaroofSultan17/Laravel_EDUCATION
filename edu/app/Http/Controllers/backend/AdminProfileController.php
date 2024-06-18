@@ -49,9 +49,30 @@ class AdminProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function profile_edit_submit(Request $request, $token)
     {
-        //
+        $profile = AdminAuthModel::where('token', $token)->first();
+        $request->validate([
+            'name' => 'required',
+            'phoneno' => 'required|max:14',
+            'email' => 'required|email',
+            'address' => 'required',
+            'image' => 'nullable|mimes:png,jpg,jpeg|max:1024'
+        ]);
+        // Image
+        if (isset($request->image)) {
+            $ImageName = "admin_profile_" . time() . "." . $request->image->extension();
+            $FolderPath = 'uploads/profile';
+            $ImagePath = $FolderPath . "/" . $ImageName;
+            $request->image->move(public_path($FolderPath), $ImageName);
+            $profile->image = $ImagePath;
+        }
+        $profile->name = $request->name;
+        $profile->phoneno = $request->phoneno;
+        $profile->email = $request->email;
+        $profile->address = $request->address;
+        $profile->save();
+        return redirect()->route('profile.show', ['token' => $profile->token])->with('success', 'Profile is Updated!');
     }
 
     /**

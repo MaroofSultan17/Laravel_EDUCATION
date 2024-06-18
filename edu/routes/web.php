@@ -52,6 +52,7 @@ Route::post('/admin/register/submit', [AdminAuthController::class, 'admin_regist
 Route::middleware('isAdmin')->group(function () {
     Route::get('/admin/profile/{token}', [AdminProfileController::class, 'profile'])->name('profile.show');
     Route::get('/admin/profile-edit/{token}', [AdminProfileController::class, 'profile_edit'])->name('profile_edit.show');
+    Route::post('/admin/profile-edit/{token}', [AdminProfileController::class, 'profile_edit_submit'])->name('profile_edit.submit');
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.show');
     Route::get('/admin/courses', [AdminCoursesController::class, 'index']);
     Route::get('/admin/courses/add', [AdminAddCoursesController::class, 'index']);
