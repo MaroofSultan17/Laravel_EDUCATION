@@ -16,7 +16,6 @@
 <script src="{{ url('backend/js/shared/off-canvas.js') }}"></script>
 <script src="{{ url('backend/js/shared/misc.js') }}"></script>
 <script src="{{ url('backend/js/demo_1/dashboard.j') }}s"></script>
-<script src="{{ url('backend/js/shared/jquery.cookie.js') }}" type="text/javascript"></script>
 </body>
 
 </html>

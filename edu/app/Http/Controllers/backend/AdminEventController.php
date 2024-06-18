@@ -26,7 +26,6 @@ class AdminEventController extends Controller
             'address' => 'required',
             'image' => 'required|mimes:png,jpg,jped,svg|max:1024'
         ]);
-
         $ImageName = "event_image_" . time() . "." . $request->image->extension();
         $FolderPath = "uploads/events";
         $ImagePath = $FolderPath . "/" . $ImageName;

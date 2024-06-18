@@ -38,7 +38,7 @@
                 <div class="category_items_wrapper row">
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_test_tube.png" alt="Icon Test Tube">
                                 </span>
@@ -50,7 +50,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_calendar.png" alt="Icon Calender">
                                 </span>
@@ -62,7 +62,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_design.png" alt="Icon Design">
                                 </span>
@@ -74,7 +74,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_briefcase.png" alt="Icon Briefcase">
                                 </span>
@@ -86,7 +86,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_design.png" alt="Icon Design">
                                 </span>
@@ -98,7 +98,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_briefcase.png" alt="Icon Briefcase">
                                 </span>
@@ -110,7 +110,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_calendar.png" alt="Icon Calender">
                                 </span>
@@ -122,7 +122,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item" style="background-image: url('frontend/images/shapes/dot_shape_3.png');">
-                            <a data-cursor='-opaque' data-magnetic href='course_details.html'>
+                            <a data-cursor='-opaque' data-magnetic href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_test_tube.png" alt="Icon Test Tube">
                                 </span>
@@ -146,9 +146,10 @@
                 <div class="category2_items_wrapper row justify-content-center">
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
-                                    <img src="{{ url('frontend/images/icons/icon_test_tube.png') }}" alt="Icon Test Tube">
+                                    <img src="{{ url('frontend/images/icons/icon_test_tube.png') }}"
+                                        alt="Icon Test Tube">
                                 </span>
                                 <span class="item_content">
                                     <strong class="item_title d-block">Chemistry</strong>
@@ -160,7 +161,7 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="{{ url('frontend/images/icons/icon_calendar.png') }}" alt="Icon Test Tube">
                                 </span>
@@ -174,7 +175,7 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="{{ url('frontend/images/icons/icon_design.png') }}" alt="Icon Test Tube">
                                 </span>
@@ -188,9 +189,10 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
-                                    <img src="{{ url('frontend/images/icons/icon_briefcase.png') }}" alt="Icon Test Tube">
+                                    <img src="{{ url('frontend/images/icons/icon_briefcase.png') }}"
+                                        alt="Icon Test Tube">
                                 </span>
                                 <span class="item_content">
                                     <strong class="item_title d-block">Business</strong>
@@ -202,7 +204,7 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="{{ url('frontend/images/icons/icon_science.png') }}" alt="Icon Test Tube">
                                 </span>
@@ -216,7 +218,7 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="{{ url('frontend/images/icons/icon_rocket.png') }}" alt="Icon Test Tube">
                                 </span>
@@ -230,7 +232,7 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="{{ url('frontend/images/icons/icon_space.png') }}" alt="Icon Test Tube">
                                 </span>
@@ -244,7 +246,7 @@
 
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="{{ url('frontend/images/icons/icon_microscope.png') }}"
                                         alt="Icon Test Tube">
@@ -271,7 +273,7 @@
                 <div class="row">
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item_3">
-                            <a class='tilt bg_primary' href='course_details.html'>
+                            <a class='tilt bg_primary' href="{{ route('course_details.show') }}">
                                 <span class="item_image">
                                     <img src="{{ url('frontend/images/category/category_img_1.png') }}"
                                         alt="Category Image">
@@ -283,7 +285,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item_3">
-                            <a class='tilt bg_danger' href='course_details.html'>
+                            <a class='tilt bg_danger' href="{{ route('course_details.show') }}">
                                 <span class="item_image">
                                     <img src="{{ url('frontend/images/category/category_img_2.png') }}"
                                         alt="Category Image">
@@ -295,7 +297,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item_3">
-                            <a class='tilt bg_success' href='course_details.html'>
+                            <a class='tilt bg_success' href="{{ route('course_details.show') }}">
                                 <span class="item_image">
                                     <img src="{{ url('frontend/images/category/category_img_3.png') }}"
                                         alt="Category Image">
@@ -307,7 +309,7 @@
 
                     <div class="col col-lg-3 col-md-6 col-sm-6">
                         <div class="category_item_3">
-                            <a class='tilt bg_warning' href='course_details.html'>
+                            <a class='tilt bg_warning' href="{{ route('course_details.show') }}">
                                 <span class="item_image">
                                     <img src="{{ url('frontend/images/category/category_img_4.png') }}"
                                         alt="Category Image">

@@ -41,7 +41,7 @@
                     </ul>
                 </div>
                 <div class="col col-lg-2 col-md-6 col-sm-6">
-                    <div class="widget">
+                    <div class="widget text-center">
                         <h3 class="widget_title">Resources</h3>
                         <ul class="page_list unordered_list_block">
                             <li><a href="#!">Projects</a></li>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col col-lg-2 col-md-6 col-sm-6">
-                    <div class="widget">
+                    <div class="widget text-center">
                         <h3 class="widget_title">Info/ Decide krna</h3>
                         <ul class="page_list unordered_list_block">
                             <li><a href="#!">Site Map</a></li>
@@ -65,8 +65,11 @@
                     </div>
                 </div>
                 <div class="col col-lg-2 col-md-6 col-sm-6">
-                    <div class="widget">
+                    <div class="widget text-center">
                         <h3 class="widget_title">Support</h3>
+                        {{-- <div class="text-left">
+
+                        </div> --}}
                         <ul class="page_list unordered_list_block">
                             <li><a href="#!">Web Development</a></li>
                             <li><a href="#!">Darta Science</a></li>

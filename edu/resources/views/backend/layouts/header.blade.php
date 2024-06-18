@@ -55,6 +55,9 @@
                             <span class="count bg-success">3</span>
                         </a>
                     </li>
+                    <?php
+                    $Admin = App\Models\backend\AdminAuthModel::first();
+                    ?>
                     <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
@@ -65,15 +68,14 @@
                             <div class="dropdown-header text-center">
                                 <img class="img-md rounded-circle" src="{{ url('backend/images/faces/face8.jpg') }}"
                                     alt="Profile image">
-                                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                                <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+                                <p class="mb-1 mt-3 font-weight-semibold">{{ $Admin->name }}</p>
+                                <p class="font-weight-light text-muted mb-0">{{ $Admin->email }}</p>
                             </div>
-                            <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i
-                                    class="dropdown-item-icon ti-dashboard"></i></a>
-                            <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
-                            <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
+                            <a class="dropdown-item" href="{{ route('profile.show', ['token' => $Admin->token]) }}">My
+                                Profile<i class="dropdown-item-icon ti-dashboard"></i></a>
                             <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-                            <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                            <a class="dropdown-item" href="{{ route('admin.signout') }}">Sign Out<i
+                                    class="dropdown-item-icon ti-power-off"></i></a>
                         </div>
                     </li>
                 </ul>
@@ -94,14 +96,14 @@
                                 <div class="dot-indicator bg-success"></div>
                             </div>
                             <div class="text-wrapper">
-                                <p class="profile-name">Maroof Sultan</p>
+                                <p class="profile-name">{{ $Admin->name }}</p>
                                 <p class="designation">Supeer Admin</p>
                             </div>
                         </a>
                     </li>
                     <li class="nav-item nav-category">Main Menu</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/admin') }}">
+                        <a class="nav-link" href="{{ route('dashboard.show') }}">
                             <i class="menu-icon typcn typcn-document-text"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>

@@ -20,7 +20,7 @@
                                 technologies.
                             </p>
                             <div class="wow fadeInUp" data-wow-delay=".4s">
-                                <a class='btn btn_primary' href='about.html'>
+                                <a class='btn btn_primary' href={{ route('about.show') }}>
                                     <span>
                                         <small>Go For Business Learning</small>
                                         <small>Go For Business Learning</small>

@@ -1,22 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@yield('title') | EDUCATION</title>
+    <link rel="shortcut icon" href="{{ url('frontend/images/logo/favourite_icon.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/fontawesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/cursor.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('rontend/css/magnific-popup.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/style.css') }}">
+</head>
+
 @if (request()->routeIs('home.show'))
-    <!doctype html>
-    <html lang="en">
-
-    <head>
-        <title>@yield('title') | EDUCATION</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="shortcut icon" href="{{ url('frontend/images/logo/favourite_icon.png') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/fontawesome.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/cursor.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/slick.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/animate.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('rontend/css/magnific-popup.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/style.css') }}">
-    </head>
-
 
     <body>
         <div class="page_wrapper">
@@ -68,10 +68,10 @@
                                                 <li class="{{ request()->routeIs('courses.show') ? 'active' : '' }}">
                                                     <a href='{{ route('courses.show') }}'>Our Courses</a>
                                                 </li>
-                                                <li
+                                                {{-- <li
                                                     class="{{ request()->routeIs('course_details.show') ? 'active' : '' }}">
                                                     <a href='{{ route('course_details.show') }}'>Course Details</a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
                                         <li class="dropdown {{ request()->routeIs('blogs.show') ? 'active' : '' }}">
@@ -82,35 +82,12 @@
                                             <ul class="dropdown-menu" aria-labelledby="blog_submenu">
                                                 <li class="{{ request()->routeIs('blogs.show') ? 'active' : '' }}"><a
                                                         href='{{ route('blogs.show') }}'>Our Blogs</a></li>
-                                                <li
+                                                {{-- <li
                                                     class="{{ request()->routeIs('blog_details.show') ? 'active' : '' }}">
                                                     <a href='{{ route('blog_details.show') }}'>Blog Details</a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
-                                        {{-- <li class="dropdown">
-                                            <a class="nav-link" href="#" id="pages_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Pages
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="pages_submenu">
-                                                <li><a href='about.html'>About Us</a></li>
-                                                <li class="dropdown">
-                                                    <a class="nav-link" href="#" id="register_submenu"
-                                                        role="button" data-bs-toggle="dropdown"
-                                                        aria-expanded="false">
-                                                        My Account
-                                                    </a>
-                                                    <ul class="dropdown-menu" aria-labelledby="register_submenu">
-                                                        <li><a href='login.html'>Login Form</a></li>
-                                                        <li><a href='signup.html'>Sign Up Form</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href='instructor.html'>Instructors</a></li>
-                                                <li><a href='membership.html'>Membership</a></li>
-                                                <li><a href='event_details.html'>Event Details</a></li>
-                                            </ul>
-                                        </li> --}}
                                         <li class="{{ request()->routeIs('contact.show') ? 'active' : '' }}">
                                             <a class='nav-link' href="{{ route('contact.show') }}">Contact</a>
                                         </li>
@@ -125,11 +102,7 @@
                                             <i class="far fa-bars"></i>
                                         </button>
                                     </li>
-                                    <li>
-                                        <a class='login_btn' data-cursor='-opaque' data-magnetic href='login.html'>
-                                            <i class="far fa-user"></i>
-                                        </a>
-                                    </li>
+
                                     <li class="dropdown">
                                         <button data-magnetic data-cursor="-opaque" type="button" class="cart_btn"
                                             id="cart_dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -141,6 +114,24 @@
                                                     products</span> in the cart.</h3>
                                         </div>
                                     </li>
+                                    @if (session()->has('token'))
+                                        <li>
+                                            <a class='btn btn_primary' href="{{ route('logout') }}">
+                                                <i class="far fa-user-minus me-1"></i>
+                                                <span>
+                                                    <small>Logout</small>
+                                                    <small>Logout</small>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a class='login_btn' data-cursor='-opaque' data-magnetic
+                                                href="{{ route('login.show') }}">
+                                                <i class="far fa-user"></i>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
@@ -148,23 +139,6 @@
                 </div>
             </header>
         @else
-            <!doctype html>
-            <html lang="en">
-
-            <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                <meta http-equiv="x-ua-compatible" content="ie=edge">
-                <title>@yield('title') | EDUCATION</title>
-                <link rel="shortcut icon" href="{{ url('frontend/images/logo/favourite_icon.png') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/bootstrap.min.css') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/fontawesome.css') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/cursor.css') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/slick.css') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/animate.css') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('rontend/css/magnific-popup.css') }}">
-                <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/style.css') }}">
-            </head>
 
             <body>
                 <div class="page_wrapper">
@@ -178,7 +152,7 @@
                         <div class="header_top text-center">
                             <p class="m-0">Learn more with exclusive courses, quizzes, and extra practice content
                             </p>
-                            <a class='btn btn_warning' href='about.html'>
+                            <a class='btn btn_warning' href="{{ route('about.show') }}">
                                 <span>
                                     <small>Learn more</small>
                                     <small>Learn more</small>
@@ -222,11 +196,11 @@
                                                                 class="{{ request()->routeIs('courses.show') ? 'active' : '' }}">
                                                                 <a href='{{ route('courses.show') }}'>Our Courses</a>
                                                             </li>
-                                                            <li
+                                                            {{-- <li
                                                                 class="{{ request()->routeIs('course_details.show') ? 'active' : '' }}">
                                                                 <a href='{{ route('course_details.show') }}'>Course
                                                                     Details</a>
-                                                            </li>
+                                                            </li> --}}
                                                         </ul>
                                                     </li>
                                                     <li
@@ -242,36 +216,13 @@
                                                                 class="{{ request()->routeIs('blogs.show') ? 'active' : '' }}">
                                                                 <a href='{{ route('blogs.show') }}'>Our Blogs</a>
                                                             </li>
-                                                            <li
+                                                            {{-- <li
                                                                 class="{{ request()->routeIs('blog_details.show') ? 'active' : '' }}">
                                                                 <a href='{{ route('blog_details.show') }}'>Blog
                                                                     Details</a>
-                                                            </li>
+                                                            </li> --}}
                                                         </ul>
                                                     </li>
-                                                    {{-- <li class="dropdown">
-                                                        <a class="nav-link" href="#" id="pages_submenu" role="button"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Pages
-                                                        </a>
-                                                        <ul class="dropdown-menu" aria-labelledby="pages_submenu">
-                                                            <li><a href='about.html'>About Us</a></li>
-                                                            <li class="dropdown">
-                                                                <a class="nav-link" href="#" id="register_submenu"
-                                                                    role="button" data-bs-toggle="dropdown"
-                                                                    aria-expanded="false">
-                                                                    My Account
-                                                                </a>
-                                                                <ul class="dropdown-menu" aria-labelledby="register_submenu">
-                                                                    <li><a href='login.html'>Login Form</a></li>
-                                                                    <li><a href='signup.html'>Sign Up Form</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href='instructor.html'>Instructors</a></li>
-                                                            <li><a href='membership.html'>Membership</a></li>
-                                                            <li><a href='event_details.html'>Event Details</a></li>
-                                                        </ul>
-                                                    </li> --}}
                                                     <li
                                                         class="{{ request()->routeIs('contact.show') ? 'active' : '' }}">
                                                         <a class='nav-link'
@@ -279,36 +230,6 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <ul class="header_btns_group unordered_list_end">
-                                                <li>
-                                                    <button data-magnetic data-cursor="-opaque"
-                                                        class="mobile_menu_btn" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown"
-                                                        aria-controls="main_menu_dropdown" aria-expanded="false"
-                                                        aria-label="Toggle navigation">
-                                                        <i class="far fa-bars"></i>
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <a class='login_btn' data-cursor='-opaque' data-magnetic
-                                                        href='login.html'>
-                                                        <i class="far fa-user"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <button data-magnetic data-cursor="-opaque" type="button"
-                                                        class="cart_btn" id="cart_dropdown" data-bs-toggle="dropdown"
-                                                        aria-expanded="false">
-                                                        <i class="far fa-shopping-cart"></i>
-                                                        <span class="cart_counter">0</span>
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="cart_dropdown">
-                                                        <h3 class="cart_empty_text text-center mb-0"><span
-                                                                class="d-block">No
-                                                                products</span> in the cart.</h3>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </nav>
                                     </div>
                                     <div class="col col-lg-3 col-5">
@@ -335,22 +256,34 @@
                                                             products</span> in the cart.</h3>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <a class='login_btn' data-cursor='-opaque' data-magnetic
-                                                    href='login.html'>
-                                                    <i class="far fa-user"></i>
-                                                    <span>Login</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class='btn btn_primary' href='signup.html'>
-                                                    <i class="far fa-user-plus me-1"></i>
-                                                    <span>
-                                                        <small>Sign Up</small>
-                                                        <small>Sign Up</small>
-                                                    </span>
-                                                </a>
-                                            </li>
+                                            @if (session()->has('token'))
+                                                <li>
+                                                    <a class='btn btn_primary' href="{{ route('logout') }}">
+                                                        <i class="far fa-user-minus me-1"></i>
+                                                        <span>
+                                                            <small>Logout</small>
+                                                            <small>Logout</small>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li>
+                                                    <a class='login_btn' data-cursor='-opaque' data-magnetic
+                                                        href="{{ route('login.show') }}">
+                                                        <i class="far fa-user"></i>
+                                                        <span>Login</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class='btn btn_primary' href="{{ route('signup.show') }}">
+                                                        <i class="far fa-user-plus me-1"></i>
+                                                        <span>
+                                                            <small>Sign Up</small>
+                                                            <small>Sign Up</small>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
