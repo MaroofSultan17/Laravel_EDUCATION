@@ -4,6 +4,7 @@ use App\Http\Middleware\backend\AdminAuthMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Laravel\Socialite\Facades\Socialite;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,7 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'isAdmin' => AdminAuthMiddleware::class
+            'isAdmin' => AdminAuthMiddleware::class,
+            'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         ]);
 
     })

@@ -6,7 +6,7 @@
             <div class="container text-center">
                 <h1 class="page_heading mb-2">Create Account</h1>
                 <p class="mb-0">
-                    Already have account? <a href="{{ route('login.show') }}">Login</a>
+                    Already have account? <a href="{{ route('flogin.show') }}">Login</a>
                 </p>
             </div>
             <div class="deco_item deco_img_1" data-parallax='{"y" : -200, "smoothness": 6}'>
@@ -73,7 +73,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="bg_google" href="https://www.google.com/">
+                                        <a class="bg_google" href="{{ route('login.google') }}">
                                             <i class="fab fa-google"></i>
                                             <i class="fab fa-google"></i>
                                         </a>

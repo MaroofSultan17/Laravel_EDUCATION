@@ -14,6 +14,12 @@ return [
     |
     */
 
+    'google' => [
+        'client_id' => env('GOOGLE_Client_ID'),
+        'client_secret' => env('CLIENT_SECRET'),
+        'redirect' => "http://127.0.0.1:8000/login/google/redirect",
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

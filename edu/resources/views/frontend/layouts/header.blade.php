@@ -127,7 +127,7 @@
                                     @else
                                         <li>
                                             <a class='login_btn' data-cursor='-opaque' data-magnetic
-                                                href="{{ route('login.show') }}">
+                                                href="{{ route('flogin.show') }}">
                                                 <i class="far fa-user"></i>
                                             </a>
                                         </li>
@@ -269,7 +269,7 @@
                                             @else
                                                 <li>
                                                     <a class='login_btn' data-cursor='-opaque' data-magnetic
-                                                        href="{{ route('login.show') }}">
+                                                        href="{{ route('flogin.show') }}">
                                                         <i class="far fa-user"></i>
                                                         <span>Login</span>
                                                     </a>

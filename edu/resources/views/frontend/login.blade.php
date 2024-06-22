@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col col-lg-5">
-                        <form action="{{ route('login.auth') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('flogin.auth') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="register_form signup_login_form">
                                 <div class="form_item">

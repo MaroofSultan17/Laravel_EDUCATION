@@ -5,6 +5,10 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\frontend\AuthModel;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
+use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -37,7 +41,7 @@ class AuthController extends Controller
         $User->securepassword = $SecurePassword;
         $User->token = $TokenKey;
         if ($User->save()) {
-            return redirect()->route('login.show')->with('success', 'Congratulations Your Account is Ready!');
+            return redirect()->route('flogin.show')->with('success', 'Congratulations Your Account is Ready!');
         } else {
             return back()->with('error', 'Something is Wrong');
         }
@@ -59,10 +63,54 @@ class AuthController extends Controller
             session()->put('token', $User->token);
             return redirect()->route('home.show');
         } else {
-            return redirect()->route('login.show')->with('error', 'Email/Password is Incorrect!');
+            return redirect()->route('flogin.show')->with('error', 'Email/Password is Incorrect!');
         }
     }
 
+    public function google_login()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+    public function google_regirect()
+    {
+        // echo "this is calling";
+        // dd();
+        try {
+            $User = Socialite::driver('google')->user();
+            dd($User);
+        } catch (\Exception $e) {
+            return redirect('/login')->withErrors(['error' => 'An error occurred during Google login.']);
+        }
+
+        // try {
+        //     $User = Socialite::driver('google')->user();
+        //     dd($User);
+        //     $is_user = AuthModel::where('email', $User->getEmail())->first();
+        //     if (!$is_user) {
+        //         $TokenKey = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!*()$";
+        //         $TokenKey = str_shuffle($TokenKey);
+        //         $TokenKey = substr($TokenKey, 0, 32);
+        //         $reg_user = new AuthModel();
+        //         $MAXID = $reg_user->max('id');
+        //         $reg_user->id = $MAXID + 1;
+        //         $reg_user->google_id = $User->getId();
+        //         $reg_user->email = $User->getEmail();
+        //         $reg_user->password = $User->getName() . "@" . $User->getId();
+        //         $reg_user->securepassword = md5($User->getName() . "@" . $User->getId());
+        //         $reg_user->token = $TokenKey;
+        //         $reg_user->save();
+        //         echo"it is in registering";
+        //         dd();
+        //         // $reg_user = AuthModel::where('google_id', $User->getId());
+        //     } else {
+        //         $is_user = AuthModel::where('email', $User->getEmail())->first();
+        //     }
+        //     Auth::loginUsingId($is_user->id);
+        //     return redirect()->route('home.show');
+        // } catch (\Throwable $th) {
+        //     throw $th;
+        // }
+    }
     public function logout()
     {
         session()->flush();

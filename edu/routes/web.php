@@ -23,10 +23,12 @@ use Illuminate\Support\Facades\Route;
 
 //Frontend
 Route::get('/', [HomeController::class, 'index'])->name('home.show');
-Route::get('/login', [AuthController::class, 'login'])->name('login.show');
-Route::post('/login/submit', [AuthController::class, 'login_auth'])->name('login.auth');
+Route::get('/login', [AuthController::class, 'login'])->name('flogin.show');
+Route::post('/login/submit', [AuthController::class, 'login_auth'])->name('flogin.auth');
 Route::get('/signup', [AuthController::class, 'signup'])->name('signup.show');
 Route::post('/signup/submit', [AuthController::class, 'register'])->name('signup.register');
+Route::get('/login/google', [AuthController::class, 'google_login'])->name('login.google');
+Route::get('/login/google/redirect', [AuthController::class, 'google_regirect'])->name('redirect.google');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submitMessage'])->name('contact.add');
