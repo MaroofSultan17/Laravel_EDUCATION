@@ -54,11 +54,11 @@
                 </div>
                 <div class="col col-lg-2 col-md-6 col-sm-6">
                     <div class="widget text-center">
-                        <h3 class="widget_title">Info/ Decide krna</h3>
+                        <h3 class="widget_title">Information</h3>
                         <ul class="page_list unordered_list_block">
-                            <li><a href="#!">Site Map</a></li>
                             <li><a href="#!">Privacy Policy</a></li>
-                            <li><a href="#!">Terms & Condition</a></li>
+                            <li><a href="#!">Terms & Conditions</a></li>
+                            <li><a href="#!">FAQ's</a></li>
                             <li><a href="#!">Contact Us</a></li>
                             <li><a href="#!">Forums</a></li>
                         </ul>
@@ -66,19 +66,17 @@
                 </div>
                 <div class="col col-lg-2 col-md-6 col-sm-6">
                     <div class="widget text-center">
-                        <h3 class="widget_title">Support</h3>
-                        {{-- <div class="text-left">
-
-                        </div> --}}
+                        <h3 class="widget_title">Courses</h3>
                         <ul class="page_list unordered_list_block">
                             <li><a href="#!">Web Development</a></li>
-                            <li><a href="#!">Darta Science</a></li>
-                            <li><a href="#!">Machine Leraning</a></li>
+                            <li><a href="#!">Data Science</a></li>
+                            <li><a href="#!">Machine Learning</a></li>
                             <li><a href="#!">Developer Tools</a></li>
                             <li><a href="#!">Web Design</a></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="col col-lg-2 col-md-6 col-sm-6">
                     <div class="widget">
                         <h3 class="widget_title">Download Now</h3>

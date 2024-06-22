@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\frontend\AuthModel;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use PhpParser\Node\Stmt\TryCatch;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+
 
 class AuthController extends Controller
 {
