@@ -18,28 +18,22 @@
                     </strong>
                 </div>
             @endif
-            {{-- <div class="container-fluid mt-4 mb-3">
+            <div class="container-fluid mt-4 mb-3">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Instructor Name</th>
-                            <th scope="col">Course Details</th>
-                            <th scope="col">Course Level</th>
-                            <th scope="col">Total Lectures</th>
-                            <th scope="col">Course Catageory</th>
+                            <th scope="col">catageory</th>
+                            <th scope="col">catageory Details</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($courses as $courses)
+                        @foreach ($catageory as $courses_catageory)
                             <tr>
-                                <th scope="row">{{ $courses->course_id }}</th>
-                                <td>{{ $courses->instructor }}</td>
-                                <td>{{ $courses->coursedetails }}</td>
-                                <td>{{ $courses->courselevel }}</td>
-                                <td>{{ $courses->courselectures }}</td>
-                                <td>{{ $courses->coursecatageory }}</td>
+                                <th scope="row">{{ $courses_catageory->catageory_id }}</th>
+                                <td>{{ $courses_catageory->catageory_name }}</td>
+                                <td>{{ $courses_catageory->catageory_details }}</td>
                                 <td>
                                     <a href="#"><button class="btn"
                                             style="background: #dc2e3f; color: white;">Delete</button></a>
@@ -49,6 +43,6 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div> --}}
+            </div>
         </div>
     @endsection

@@ -116,7 +116,7 @@
                                     </li>
                                     @if (session()->has('token'))
                                         <li>
-                                            <a class='btn btn_primary' href="{{ route('logout') }}">
+                                            <a class='btn btn_primary' href="{{ route('flogout') }}">
                                                 <i class="far fa-user-minus me-1"></i>
                                                 <span>
                                                     <small>Logout</small>
@@ -258,7 +258,7 @@
                                             </li>
                                             @if (session()->has('token'))
                                                 <li>
-                                                    <a class='btn btn_primary' href="{{ route('logout') }}">
+                                                    <a class='btn btn_primary' href="{{ route('flogout') }}">
                                                         <i class="far fa-user-minus me-1"></i>
                                                         <span>
                                                             <small>Logout</small>
@@ -275,7 +275,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class='btn btn_primary' href="{{ route('signup.show') }}">
+                                                    <a class='btn btn_primary' href="{{ route('fsignup.show') }}">
                                                         <i class="far fa-user-plus me-1"></i>
                                                         <span>
                                                             <small>Sign Up</small>

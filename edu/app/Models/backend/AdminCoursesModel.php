@@ -9,5 +9,5 @@ class AdminCoursesModel extends Model
 {
     use HasFactory;
     protected $table = 'courses';
-    protected $primary_key = 'id';
+    protected $primaryKey = 'course_id';
 }

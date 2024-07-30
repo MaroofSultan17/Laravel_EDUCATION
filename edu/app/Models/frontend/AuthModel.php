@@ -10,11 +10,4 @@ class AuthModel extends Model
     use HasFactory;
     protected $table = 'user';
     protected $primaryKey = 'id';
-
-    protected $fillable = [
-        'google_id',
-        'email',
-        'password',
-        'token'
-    ];
 }

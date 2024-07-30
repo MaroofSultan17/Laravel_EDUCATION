@@ -11,42 +11,50 @@
                 </ul>
             </div>
             <div class="deco_item deco_img_1" data-parallax='{"y" : -200, "smoothness": 6}'>
-                <img src="frontend/images/shapes/line_shape_1.png" alt="Line Shape Image">
+                <img src="{{ url('frontend/images/shapes/line_shape_1.png') }}" alt="Line Shape Image">
             </div>
             <div class="deco_item deco_img_2" data-parallax='{"y" : 200, "smoothness": 6}'>
-                <img src="frontend/images/shapes/dot_shape_2.png" alt="Line Shape Image">
+                <img src="{{ url('frontend/images/shapes/dot_shape_2.png') }}" alt="Line Shape Image">
             </div>
         </section>
         <section class="details_section blog_details_section section_space_md pt-0">
             <div class="container">
+                @php
+                    use Illuminate\Support\Str;
+                    use Carbon\Carbon;
+                @endphp
                 <div class="row justify-content-lg-between">
 
                     <div class="col col-lg-8">
                         <div class="details_image">
-                            <img src="frontend/images/blogs/blog_img_6.jpg" alt="Blog Image">
+                            <img src="{{ url($blog_details->image) }}" alt="Blog Image"
+                                style="width: 800px; height: 500px; object-fit:cover;">
                         </div>
 
                         <div class="details_content">
                             <ul class="post_meta unordered_list">
-                                <li><a href="#!">Alen Mask</a></li>
-                                <li>09 Aug</li>
-                                <li><a href="#!">0 Comments</a></li>
+                                <li>
+                                    <a href="#!">{{ $blog_details->name }}</a>
+                                </li>
+                                <li>
+                                    {{ Carbon::parse($blog_details->date)->format('d') }}
+                                    {{ Carbon::parse($blog_details->date)->format('F') }}
+                                </li>
+                                <li>
+                                    <a href="#!">0 Comments</a>
+                                </li>
                             </ul>
                             <h3 class="details_item_title">
-                                Everything You Need To Know To Kickstart A Career In UI/UX
+                                {{ $blog_details->heading }}
                             </h3>
                             <p>
-                                While it's most certainly not on individuals to single-handedly reverse climate change, it
-                                can feel good to take actions that make a positive impact on the environment. And for
-                                programmers and software developers, specifically, there are a few easy changes we can make
-                                to our day-to-day that'll help us be more sustainable in our consumption and development of
-                                tech.
+                                {{ $blog_details->details }}
                             </p>
-                            <p class="mb-0">
+                            {{-- <p class="mb-0">
                                 From browsing the internet with a tree-planting search engine to lending your skills to
                                 environmental open-source projects, here's a list of ways you can reduce your carbon
                                 footprint and become a more sustainable programmer.
-                            </p>
+                            </p> --}}
                             <blockquote>
                                 <span class="quote_icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -131,7 +139,8 @@
                                 <li>
                                     <div class="comment_item">
                                         <div class="comment_hero_thumbnail">
-                                            <img src="frontend/images/meta/thumbnail_img_1.png" alt="Thumbnail">
+                                            <img src="{{ url('frontend/images/meta/thumbnail_img_1.png') }}"
+                                                alt="Thumbnail">
                                         </div>
                                         <div class="comment_hero_content">
                                             <h4 class="comment_hero_name">Benjami Costa</h4>
@@ -153,7 +162,7 @@
                                         <li>
                                             <div class="comment_item">
                                                 <div class="comment_hero_thumbnail">
-                                                    <img src="frontend/images/meta/thumbnail_img_2.png"
+                                                    <img src="{{ url('frontend/images/meta/thumbnail_img_2.png') }}"
                                                         alt="WebRock Thumbnail">
                                                 </div>
                                                 <div class="comment_hero_content">
@@ -178,7 +187,8 @@
                                 <li>
                                     <div class="comment_item">
                                         <div class="comment_hero_thumbnail">
-                                            <img src="frontend/images/meta/thumbnail_img_2.png" alt="Thumbnail">
+                                            <img src="{{ url('frontend/images/meta/thumbnail_img_2.png') }}"
+                                                alt="Thumbnail">
                                         </div>
                                         <div class="comment_hero_content">
                                             <h4 class="comment_hero_name">Benjami Costa</h4>
@@ -242,45 +252,47 @@
                                 <form action="#">
                                     <input type="search" name="search" placeholder="Write your keyword...">
                                     <button type="submit" class="submit_icon">
-                                        <img src="frontend/images/icons/icon_search.svg" alt="Icon Search">
+                                        <img src="{{ url('frontend/images/icons/icon_search.svg') }}" alt="Icon Search">
                                     </button>
                                 </form>
                             </div>
 
                             <div class="widget sidebar_post_admin text-center">
-                                <div class="admin_image">
-                                    <img src="frontend/images/meta/thumbnail_img_1.png" alt="Post Admin Image">
-                                </div>
-                                <h3 class="admin_name">Alen Mask</h3>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </p>
-                                <ul class="social_icon unordered_list_center">
-                                    <li>
-                                        <a href="https://www.facebook.com/">
-                                            <i class="fab fa-facebook-f"></i>
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="fab fa-linkedin-in"></i>
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.youtube.com/">
-                                            <i class="fab fa-youtube"></i>
-                                            <i class="fab fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                @foreach ($Admin_details as $Admin)
+                                    <div class="admin_image">
+                                        <img src="{{ url($Admin->image) }}" alt="Post Admin Image">
+                                    </div>
+                                    <h3 class="admin_name">{{ $Admin->name }}</h3>
+                                    <p>
+                                        {{ $Admin->email }}
+                                    </p>
+                                    <ul class="social_icon unordered_list_center">
+                                        <li>
+                                            <a href="https://www.facebook.com/">
+                                                <i class="fab fa-facebook-f"></i>
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://twitter.com/">
+                                                <i class="fab fa-twitter"></i>
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.linkedin.com/">
+                                                <i class="fab fa-linkedin-in"></i>
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.youtube.com/">
+                                                <i class="fab fa-youtube"></i>
+                                                <i class="fab fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                @endforeach
                             </div>
 
                             <div class="widget category_list">
@@ -343,7 +355,8 @@
                                     <li>
                                         <a class='blog_item_small' href='blog_details.html'>
                                             <span class="item_image">
-                                                <img src="frontend/images/blogs/small_blog_image_1.png" alt="Blog Image">
+                                                <img src="{{ url('frontend/images/blogs/small_blog_image_1.png') }}"
+                                                    alt="Blog Image">
                                             </span>
                                             <span class="item_content">
                                                 <strong class="item_title d-block">
@@ -356,7 +369,8 @@
                                     <li>
                                         <a class='blog_item_small' href='blog_details.html'>
                                             <span class="item_image">
-                                                <img src="frontend/images/blogs/small_blog_image_2.png" alt="Blog Image">
+                                                <img src="{{ url('frontend/images/blogs/small_blog_image_2.png') }}"
+                                                    alt="Blog Image">
                                             </span>
                                             <span class="item_content">
                                                 <strong class="item_title d-block">
@@ -369,7 +383,8 @@
                                     <li>
                                         <a class='blog_item_small' href='blog_details.html'>
                                             <span class="item_image">
-                                                <img src="frontend/images/blogs/small_blog_image_3.png" alt="Blog Image">
+                                                <img src="{{ url('frontend/images/blogs/small_blog_image_3.png') }}"
+                                                    alt="Blog Image">
                                             </span>
                                             <span class="item_content">
                                                 <strong class="item_title d-block">
@@ -384,7 +399,7 @@
 
                             <div class="widget">
                                 <a class="advertisement_banner tilt" href="#!" data-cursor="-opaque">
-                                    <img src="frontend/images/banner/advertisement_banner_img_1.jpg"
+                                    <img src="{{ url('frontend/images/banner/advertisement_banner_img_1.jpg') }}"
                                         alt="Advertisement Image">
                                 </a>
                             </div>
@@ -407,10 +422,10 @@
             </div>
         </section>
         <!-- Details Section - End
-                                    ================================================== -->
+                                                                                                            ================================================== -->
 
         <!-- Get Start Section - Start
-                                    ================================================== -->
+                                                                                                            ================================================== -->
         <section class="getstart_section decoration_wrap text-center">
             <div class="container">
                 <h2 class="title_text">Ready to kick-start your career?</h2>
@@ -423,10 +438,10 @@
                 </a>
             </div>
             <div class="deco_item deco_img_1" data-parallax='{"y" : -130, "smoothness": 6}'>
-                <img src="frontend/images/shapes/line_shape_4.png" alt="Shape Image">
+                <img src="{{ url('frontend/images/shapes/line_shape_4.png') }}" alt="Shape Image">
             </div>
             <div class="deco_item deco_img_2" data-parallax='{"y" : 130, "smoothness": 6}'>
-                <img src="frontend/images/shapes/shape_5.png" alt="Shape Image">
+                <img src="{{ url('frontend/images/shapes/shape_5.png') }}" alt="Shape Image">
             </div>
         </section>
     </main>

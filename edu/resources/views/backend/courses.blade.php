@@ -27,15 +27,18 @@
                         @foreach ($courses as $courses)
                             <tr>
                                 <th scope="row">{{ $courses->course_id }}</th>
-                                <td>{{ $courses->instructor }}</td>
+                                <td>{{ $courses->instructor_name }}</td>
                                 <td>{{ $courses->coursedetails }}</td>
                                 <td>{{ $courses->courselevel }}</td>
                                 <td>{{ $courses->courselectures }}</td>
-                                <td>{{ $courses->coursecatageory }}</td>
+                                <td>{{ $courses->catageory_name }}</td>
                                 <td>
-                                    <a href="#"><button class="btn"
-                                            style="background: #dc2e3f; color: white;">Delete</button></a>
-                                    <button class="btn" style="background: #1c45ef; color: white;">Edit</button>
+                                    <form action="#">
+                                        <button class="btn" style="background: #dc2e3f; color: white;">Delete</button>
+                                    </form>
+                                    <a href="{{ route('courseupdate.show', ['id' => $courses->course_id]) }}">
+                                        <button class="btn" style="background: #1c45ef; color: white;">Edit</button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

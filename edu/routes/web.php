@@ -25,11 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home.show');
 Route::get('/login', [AuthController::class, 'login'])->name('flogin.show');
 Route::post('/login/submit', [AuthController::class, 'login_auth'])->name('flogin.auth');
-Route::get('/signup', [AuthController::class, 'signup'])->name('signup.show');
-Route::post('/signup/submit', [AuthController::class, 'register'])->name('signup.register');
-Route::get('/login/google', [AuthController::class, 'google_login'])->name('login.google');
-Route::get('/login/google/redirect', [AuthController::class, 'google_regirect'])->name('redirect.google');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/signup', [AuthController::class, 'signup'])->name('fsignup.show');
+Route::post('/signup/submit', [AuthController::class, 'register'])->name('fsignup.register');
+Route::get('/logout', [AuthController::class, 'logout'])->name('flogout');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submitMessage'])->name('contact.add');
 Route::get('/catageory', [CourseCatageoryController::class, 'index'])->name('course_catageory.show');
@@ -37,7 +35,7 @@ Route::get('/courses', [CoursesController::class, 'index'])->name('courses.show'
 Route::get('/course-details', [CourseDetailsController::class, 'index'])->name('course_details.show');
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.show');
 Route::get('/about', [AboutController::class, 'index'])->name('about.show');
-Route::get('/blog-details', [BlogDetailsController::class, 'index'])->name('blog_details.show');
+Route::get('/blog-details/{blog_id}', [BlogDetailsController::class, 'index'])->name('blog_details.show');
 Route::get('/events/details', [EventDetailsController::class, 'index'])->name('events_details');
 
 
@@ -58,6 +56,8 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.show');
     Route::get('/admin/courses', [AdminCoursesController::class, 'index']);
     Route::get('/admin/courses/add', [AdminAddCoursesController::class, 'index']);
+    Route::get('/admin/courses/update/{id}', [AdminAddCoursesController::class, 'update_show'])->name('courseupdate.show');
+    Route::put('/admin/courses/update/submit/{id}', [AdminAddCoursesController::class, 'update'])->name('course.update');
     Route::post('/admin/courses/add', [AdminAddCoursesController::class, 'addcourses']);
     Route::get('/admin/courses/catageory', [AdminCourseCatageoryController::class, 'catageory']);
     Route::get('/admin/courses/catageory/add', [AdminCourseCatageoryController::class, 'add_catageory']);

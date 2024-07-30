@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col col-lg-5">
-                        <form action="{{ route('signup.register') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('fsignup.register') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="register_form signup_login_form">
                                 <div class="form_item">
@@ -73,7 +73,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="bg_google" href="{{ route('login.google') }}">
+                                        <a class="bg_google" href="https://www.google.com/">
                                             <i class="fab fa-google"></i>
                                             <i class="fab fa-google"></i>
                                         </a>

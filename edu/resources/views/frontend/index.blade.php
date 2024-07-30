@@ -123,7 +123,7 @@
                                                                 href="#!">{{ $coursedata->badge }}</a>
                                                         </li>
                                                     </ul>
-                                                    <a class='image_wrap p-2' href='course_details.html'>
+                                                    <a class='image_wrap p-2' href="{{ route('course_details.show') }}">
                                                         <img style="object-fit: cover; width: 400px; height: 300px;"
                                                             src="{{ url($coursedata->image) }}"
                                                             alt="Education, Online Course, LMS Creative Site Template">
@@ -133,7 +133,7 @@
                                                     <a class="course_instructor btn_unfill"
                                                         href="#!">{{ strtoupper($coursedata->instructor_name) }}</a>
                                                     <h3 class="item_title">
-                                                        <a href='course_details.html'>
+                                                        <a href="{{ route('course_details.show') }}">
                                                             {{ $coursedata->coursedetails }}
                                                         </a>
                                                     </h3>
@@ -199,7 +199,7 @@
                 <div class="category2_items_wrapper row justify-content-center">
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_test_tube.png" alt="Icon Test Tube">
                                 </span>
@@ -212,7 +212,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_calendar.png" alt="Icon Test Tube">
                                 </span>
@@ -225,7 +225,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_design.png" alt="Icon Test Tube">
                                 </span>
@@ -238,7 +238,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_briefcase.png" alt="Icon Test Tube">
                                 </span>
@@ -251,7 +251,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_science.png" alt="Icon Test Tube">
                                 </span>
@@ -264,7 +264,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_rocket.png" alt="Icon Test Tube">
                                 </span>
@@ -277,7 +277,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href="{{ route('course_details.show') }}">
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_space.png" alt="Icon Test Tube">
                                 </span>
@@ -290,7 +290,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div class="category_item_2">
-                            <a href='course_details.html'>
+                            <a href='href="{{ route('course_details.show') }}"'>
                                 <span class="item_icon">
                                     <img src="frontend/images/icons/icon_microscope.png" alt="Icon Test Tube">
                                 </span>

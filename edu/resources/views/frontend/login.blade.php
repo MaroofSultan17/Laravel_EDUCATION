@@ -78,7 +78,7 @@
                                     <i class="fal fa-paper-plane ms-2"></i>
                                 </button>
                                 <p class="mb-0 text-center">don't have an account? <a
-                                        href="{{ route('signup.show') }}">Register
+                                        href="{{ route('fsignup.show') }}">Register
                                         Here</a></p>
                             </div>
                         </form>

@@ -10,7 +10,9 @@ class AdminCourseCatageoryController extends Controller
 {
     public function catageory()
     {
-        return view('backend.course-catageory');
+        $catageory = AdminCourseCatageoryModel::all();
+        $data = compact('catageory');
+        return view('backend.course-catageory')->with($data);
     }
     public function add_catageory()
     {

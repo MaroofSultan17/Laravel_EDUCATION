@@ -56,9 +56,9 @@
                     <div class="widget text-center">
                         <h3 class="widget_title">Information</h3>
                         <ul class="page_list unordered_list_block">
+                            <li><a href="#!">FAQ's</a></li>
                             <li><a href="#!">Privacy Policy</a></li>
                             <li><a href="#!">Terms & Conditions</a></li>
-                            <li><a href="#!">FAQ's</a></li>
                             <li><a href="#!">Contact Us</a></li>
                             <li><a href="#!">Forums</a></li>
                         </ul>
@@ -76,6 +76,7 @@
                         </ul>
                     </div>
                 </div>
+
 
                 <div class="col col-lg-2 col-md-6 col-sm-6">
                     <div class="widget">

@@ -1,5 +1,5 @@
 @extends('backend.layouts.main')
-@section('title', 'Courses')
+@section('title', 'Add Course')
 @section('main-container')
     <div class="main-panel">
         <div class="content-wrapper">

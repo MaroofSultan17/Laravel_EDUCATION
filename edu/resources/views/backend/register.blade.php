@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="text-block text-center my-3">
                                     <span class="text-small font-weight-semibold">Already have and account ?</span>
-                                    <a href="{{ route('login.auth') }}" class="text-black text-small">Login</a>
+                                    <a href="{{ route('login.show') }}" class="text-black text-small">Login</a>
                                 </div>
                             </form>
                         </div>
